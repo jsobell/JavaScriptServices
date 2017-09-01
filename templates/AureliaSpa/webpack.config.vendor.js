@@ -44,6 +44,7 @@ module.exports = ({ prod } = {}) => {
         },
         plugins: [
             extractCSS,
+            new AureliaPlugin({ aureliaApp: undefined, dist: "native-modules" }),
             new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }), // Maps these identifiers to the jQuery package (because Bootstrap expects it to be a global variable)
             new webpack.DllPlugin({
                 path: path.join(__dirname, 'wwwroot', 'dist', '[name]-manifest.json'),
